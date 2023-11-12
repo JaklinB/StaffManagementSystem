@@ -31,7 +31,7 @@ public class JSONUtil {
             employees = mapper.readValue(reader, javaType);
             employees = validateEmployees(employees);
         } catch (IOException e) {
-            System.err.println("Error reading from JSON file: " + filePath + ". Error: " + e.getMessage());
+            System.out.println("Error reading from JSON file: " + filePath + ". Error: " + e.getMessage());
         }
         return employees;
     }
@@ -42,7 +42,7 @@ public class JSONUtil {
             if (isValidEmployee(employee)) {
                 validEmployees.add(employee);
             } else {
-                System.err.println("Invalid employee data: " + employee);
+                System.out.println("Invalid employee data: " + employee);
             }
         }
         return validEmployees;
@@ -62,7 +62,7 @@ public class JSONUtil {
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath))) {
             mapper.writeValue(writer, employees);
         } catch (IOException e) {
-            System.err.println("Error writing to JSON file: " + filePath + ". Error: " + e.getMessage());
+            System.out.println("Error writing to JSON file: " + filePath + ". Error: " + e.getMessage());
         }
     }
 }

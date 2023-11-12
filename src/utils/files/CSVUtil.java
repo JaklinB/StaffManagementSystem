@@ -81,7 +81,7 @@ public class CSVUtil {
             double salary = Double.parseDouble(values[6]);
             return new Employee(id, name, startDate, endDate, department, role, salary);
         } catch (DateTimeParseException | IllegalArgumentException e) {
-            System.err.println("Error parsing employee data: " + Arrays.toString(values) + ". Error: " + e.getMessage());
+            System.out.println("Error parsing employee data: " + Arrays.toString(values) + ". Error: " + e.getMessage());
             return null;
         }
     }
@@ -102,7 +102,7 @@ public class CSVUtil {
                 bw.write(line);
             }
         } catch (IOException e) {
-            System.err.println("Error writing to CSV file: " + filePath + ". Error: " + e.getMessage());
+            System.out.println("Error writing to CSV file: " + filePath + ". Error: " + e.getMessage());
         }
     }
 
