@@ -21,13 +21,22 @@ public class DateUtils {
 
     public static LocalDate parseDate(String dateStr) {
         if (!isValidDate(dateStr)) {
-            throw new DateTimeParseException("Invalid date format", dateStr, 0);
+            System.out.println("Invalid date format: " + dateStr);
+            System.out.println("Date format should be " + Constants.DATE_FORMAT);
+            return null;
+        } else {
+            return LocalDate.parse(dateStr, formatter);
         }
-        return LocalDate.parse(dateStr, formatter);
     }
 
     public static String formatDate(LocalDate date) {
-        return date.format(formatter);
+        if (date == null|| !isValidDate(date.toString())) {
+            System.out.println("Invalid date format: " + date);
+            System.out.println("Date format should be " + Constants.DATE_FORMAT);
+            return null;
+        } else {
+            return date.format(formatter);
+        }
     }
 
 }

@@ -32,13 +32,16 @@ public class EmployeeAdder {
             double salary = Double.parseDouble(details[5].trim());
 
             Employee newEmployee = new Employee(id, name, startDate, null, department, role, salary);
-            service.addEmployee(newEmployee);
-            System.out.println("Employee added successfully.");
+            if (startDate != null) {
+                service.addEmployee(newEmployee);
+                System.out.println("Employee added successfully.");
+            }
+
 
         } catch (NumberFormatException e) {
-            System.out.println("Invalid number format. Please ensure ID and Salary are numbers.");
+            System.out.println("Invalid number format." + e.getMessage());
         } catch (IllegalArgumentException e) {
-            System.out.println("Invalid department, role, or date format. Please ensure they are correct.");
+            System.out.println("Invalid data: " + e.getMessage());
         }
     }
 }

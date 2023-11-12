@@ -40,6 +40,7 @@ public class CSVUtil {
                 if (values.length != 7 || !isValidEmployeeData(values)) {
                     System.out.println("Invalid data at line " + lineNumber + ": " + line);
                     skippedLines++;
+                    skippedLines++;
                     continue;
                 }
                 Employee employee = parseEmployee(values);
@@ -75,6 +76,10 @@ public class CSVUtil {
             int id = Integer.parseInt(values[0]);
             String name = values[1];
             LocalDate startDate = DateUtils.parseDate(values[2]);
+            if (startDate == null) {
+                System.out.println("Invalid start date for employee: " + values[1]);
+                return null;
+            }
             LocalDate endDate = values[3].isEmpty() ? null : DateUtils.parseDate(values[3]);
             Department department = Department.valueOf(values[4].toUpperCase().replace(" ", Constants.ENUM_SPACE_REPLACEMENT));
             Role role = Role.valueOf(values[5].toUpperCase().replace(" ", Constants.ENUM_SPACE_REPLACEMENT));
@@ -91,6 +96,10 @@ public class CSVUtil {
             bw.write("Id,Name,StartDate,EndDate,Department,Role,Salary\n");
             for (Employee employee : employees) {
                 String endDateStr = employee.getEndDate() != null ? DateUtils.formatDate(employee.getEndDate()) : "";
+                if (employee.getStartDate() == null) {
+                    System.out.println("Invalid date format: " + employee.getStartDate());
+                    continue;
+                }
                 String line = String.format("%d,%s,%s,%s,%s,%s,%.2f\n",
                         employee.getId(),
                         employee.getName(),
