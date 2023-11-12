@@ -16,7 +16,7 @@ public class Employee {
 
     /**
      * Parameterized constructor for creating an Employee object.
-     * <p>
+     *
      * This constructor is used to create an Employee object with specific values,
      * ensuring that all necessary data is provided upon creation.
      *
@@ -43,18 +43,18 @@ public class Employee {
 
     /**
      * Default no-argument constructor for the Employee class.
-     * <p>
+     *
      * Purpose:
      * - Used by JSON deserialization libraries (Jackson).
      * - Essential for frameworks that rely on reflection and require a public
      * default constructor for operations like serialization/deserialization.
-     * <p>
+     *
      * Usage Note:
      * - This constructor should not be used for creating Employee instances within
      * the application logic, as it does not initialize the object with specific,
      * meaningful data. For creating Employee objects, the parameterized constructor
      * should be used which ensures all necessary fields are appropriately set.
-     * <p>
+     *
      * Implementation:
      * - The constructor is intentionally left empty. It serves the purpose of
      * allowing class instantiation without setting any properties, which is

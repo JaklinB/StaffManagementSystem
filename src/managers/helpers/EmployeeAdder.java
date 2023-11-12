@@ -34,7 +34,6 @@ public class EmployeeAdder {
             Employee newEmployee = new Employee(id, name, startDate, null, department, role, salary);
             if (startDate != null) {
                 service.addEmployee(newEmployee);
-                System.out.println("Employee added successfully.");
             }
 
 

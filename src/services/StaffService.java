@@ -31,10 +31,25 @@ public class StaffService implements Service {
         }
     }
 
+    /**
+     * Checks if an employee ID is unique in the list of employees.
+     *
+     * @param id The employee ID to check.
+     * @return true if the ID is unique, false otherwise.
+     */
+    private boolean isUniqueId(int id) {
+        return this.employees.stream().noneMatch(employee -> employee.getId() == id);
+    }
+
     @Override
     public void addEmployee(Employee employee) {
-        this.employees.add(employee);
-        saveEmployees();
+        if (isUniqueId(employee.getId())) {
+            this.employees.add(employee);
+            saveEmployees();
+            System.out.println("Employee added successfully.");
+        } else {
+            System.out.println("An employee with ID " + employee.getId() + " already exists.");
+        }
     }
 
     @Override
