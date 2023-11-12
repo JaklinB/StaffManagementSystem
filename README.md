@@ -2,7 +2,7 @@
 
 # Overview
 
-The Staff Management System is a Java application designed to facilitate the management of staff-related data within an organization. It offers a structured and user-friendly interface, streamlining various operations associated with staff management. This system is ideal for HR departments and organizational administrators looking to maintain comprehensive records of their staff members.
+The Staff Management System is a Java application designed to facilitate the management of staff-related data within an organization. It offers a structured and user-friendly interface, streamlining various operations associated with staff management. 
 
 # Features
 Interactive Menu: A user-friendly interface ensures easy navigation and operation of the system.
