@@ -1,0 +1,14 @@
+package enums;
+
+public enum Role {
+    INTERN,
+    JUNIOR_DEVELOPER,
+    DEVELOPER,
+    SENIOR_DEVELOPER,
+    MANAGER,
+    DESIGNER,
+    MARKETING_SPECIALIST,
+    SALES_REPRESENTATIVE,
+    ACCOUNTANT,
+    HR
+}
